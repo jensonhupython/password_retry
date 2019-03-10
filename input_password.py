@@ -8,23 +8,24 @@
 
 password = 'a123456'
 
-input_account = 1;
+input_account = 3;  # 剩餘機會
 
-while input_account < 4:
+while input_account > 0:
     user_password = input("請輸入密碼: ")
-    
+
+    input_account = input_account - 1
+
     if password == user_password:
         print('登入成功!')
         break
     else:
-        print('密碼錯誤!!')
-        print('輸入次數: ', input_account)
-        print('還有幾次輸入次數: ', 3 - input_account)
-    input_account = input_account + 1
-    
+        print('密碼錯誤!')
+        if input_account > 0:
+            print('還有', input_account, '次機會')
+        else:
+            print('沒機會嘗試了!!!')
 
-if input_account > 3:
-    print('已經輸入3次的錯誤密碼!')    
+  
 
 
 
